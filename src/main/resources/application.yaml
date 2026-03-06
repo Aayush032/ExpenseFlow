@@ -1,3 +1,20 @@
 spring:
   application:
     name: ExpenseFlow
+  datasource:
+    name: expenseflow
+    url: jdbc:mysql://localhost:3306/expenseflow?serverTimezone=Asia/Kathmandu
+    username: root
+    password: Bizbot@9067
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8070
+  servlet:
+    context-path: /api

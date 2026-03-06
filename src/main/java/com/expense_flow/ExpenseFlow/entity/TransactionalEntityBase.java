@@ -4,17 +4,16 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @MappedSuperclass
-public class MasterEntityBase implements Serializable {
+public class TransactionalEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    private Short id;
+    private Integer id;
 
     @Column(name = "CREATED_DATE", nullable = false)
     private LocalDateTime createdDate;
