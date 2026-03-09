@@ -1,0 +1,27 @@
+package com.expense_flow.ExpenseFlow.controller;
+
+import com.expense_flow.ExpenseFlow.dto.request.ExpenseItemCreateRequest;
+import com.expense_flow.ExpenseFlow.dto.response.ServerResponse;
+import com.expense_flow.ExpenseFlow.facade.ExpenseItemFacade;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/expense-item")
+@AllArgsConstructor
+@Validated
+public class ExpenseItemController {
+    private final ExpenseItemFacade facade;
+
+    @PostMapping("/add")
+    public ResponseEntity<ServerResponse> create(@RequestBody @Valid ExpenseItemCreateRequest createRequest) {
+        ServerResponse serverResponse = facade.create(createRequest);
+        return new ResponseEntity<>(serverResponse, serverResponse.getStatus());
+    }
+}

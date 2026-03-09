@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "EXPENSE_TRACKER")
 @Getter
 @Setter
-public class ExpenseTracker extends MasterEntityBase{
+public class ExpenseItem extends MasterEntityBase{
     @Column(name = "NAME", nullable = false)
     private String name;
 
@@ -33,6 +33,6 @@ public class ExpenseTracker extends MasterEntityBase{
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "USER", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "USER", referencedColumnName = "ID", nullable = true)
     private User user;
 }

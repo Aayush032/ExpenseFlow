@@ -35,5 +35,5 @@ public class Expense extends TransactionalEntityBase{
 
     @ManyToOne
     @JoinColumn(name = "EXPENSE_TRACKER", referencedColumnName = "ID", nullable = false)
-    private ExpenseTracker expenseTracker;
+    private ExpenseItem expenseItem;
 }
